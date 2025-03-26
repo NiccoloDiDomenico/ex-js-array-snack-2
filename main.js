@@ -23,7 +23,7 @@ const longBooksTitles = longBooks.map((b) => b.title)
 // Snack 2
 // Creare un array (availableBooks) che contiene tutti i libri disponibili.
 const availableBooks = books.filter((b) => b.available)
-console.log(availableBooks);
+// console.log(availableBooks);
 
 // Crea un array (discountedBooks) con gli availableBooks, ciascuno con il prezzo scontato del 20% (mantieni lo stesso formato e arrotonda al centesimo)
 const discountedBooks = availableBooks.map((b) => {
@@ -35,7 +35,7 @@ const discountedBooks = availableBooks.map((b) => {
     return { ...b, price: `${discountPrice}€` };
 });
 
-console.log(discountedBooks);
+// console.log(discountedBooks);
 
 // Salva in una variabile (fullPricedBook) il primo elemento di discountedBooks che ha un prezzo intero (senza centesimi).
 const fullPricedBook = discountedBooks.find((b) => {
@@ -44,4 +44,39 @@ const fullPricedBook = discountedBooks.find((b) => {
     // Verifica se è un num. intero
     return Number.isInteger(originalPrice)
 })
-console.log(fullPricedBook);
+// console.log(fullPricedBook);
+
+
+// Snack 3
+// Creare un array (authors) che contiene gli autori dei libri.
+const authors = books.map((b) => b.author)
+// console.log(authors);
+
+// Crea una variabile booleana (areAuthorsAdults) per verificare se gli autori sono tutti maggiorenni.
+const areAuthorsAdults = books.every((b) => b.author.age > 18)
+// console.log(areAuthorsAdults);
+
+// Ordina l’array authors in base all’età, senza creare un nuovo array. (se areAuthorsAdult è true, ordina in ordine crescente, altrimenti in ordine decrescente)
+
+authors.sort((a, b) => b.age - a.age)
+// console.log(authors);
+
+
+// Snack 4
+// Creare un array (ages) che contiene le età degli autori dei libri.
+const ages = books.map((b) => {
+    return b.author.age
+})
+// console.log(ages);
+
+// Calcola la somma delle età (agesSum) usando reduce.
+const sommaEtà = ages.reduce((acc, numero) => {
+    return acc + numero
+}, 0)
+// console.log(sommaEtà);
+
+// Stampa in console l’età media degli autori dei libri.
+const media = sommaEtà / ages.length
+// console.log(media);
+
+
